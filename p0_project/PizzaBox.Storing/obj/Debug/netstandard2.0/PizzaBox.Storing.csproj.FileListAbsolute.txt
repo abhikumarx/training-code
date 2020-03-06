@@ -1,0 +1,11 @@
+/home/abhi/revature/p0_project/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Storing.deps.json
+/home/abhi/revature/p0_project/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Storing.dll
+/home/abhi/revature/p0_project/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Storing.pdb
+/home/abhi/revature/p0_project/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Domain.dll
+/home/abhi/revature/p0_project/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Domain.pdb
+/home/abhi/revature/p0_project/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.csprojAssemblyReference.cache
+/home/abhi/revature/p0_project/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.AssemblyInfoInputs.cache
+/home/abhi/revature/p0_project/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.AssemblyInfo.cs
+/home/abhi/revature/p0_project/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.csproj.CopyComplete
+/home/abhi/revature/p0_project/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.dll
+/home/abhi/revature/p0_project/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.pdb

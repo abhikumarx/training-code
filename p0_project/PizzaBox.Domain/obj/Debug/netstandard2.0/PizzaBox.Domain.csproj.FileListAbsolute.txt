@@ -1,0 +1,8 @@
+/home/abhi/revature/p0_project/PizzaBox.Domain/bin/Debug/netstandard2.0/PizzaBox.Domain.deps.json
+/home/abhi/revature/p0_project/PizzaBox.Domain/bin/Debug/netstandard2.0/PizzaBox.Domain.dll
+/home/abhi/revature/p0_project/PizzaBox.Domain/bin/Debug/netstandard2.0/PizzaBox.Domain.pdb
+/home/abhi/revature/p0_project/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.csprojAssemblyReference.cache
+/home/abhi/revature/p0_project/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.AssemblyInfoInputs.cache
+/home/abhi/revature/p0_project/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.AssemblyInfo.cs
+/home/abhi/revature/p0_project/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.dll
+/home/abhi/revature/p0_project/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.pdb

@@ -11,6 +11,7 @@ namespace MediaWorld.Domain.Singletons
 //     Console.WriteLine("no");
 //   }
 // }
+//
 public class AudioPlayer : APlayer
 {
   private static AudioPlayer _ap = new AudioPlayer();
@@ -27,7 +28,6 @@ public class AudioPlayer : APlayer
       return _ap;
     }
   }
-
 
     // public static AudioPlayer GetInstance()
     // {

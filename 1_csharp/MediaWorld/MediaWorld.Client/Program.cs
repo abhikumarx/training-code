@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MediaWorld.Domain.Models;
 using MediaWorld.Domain.Singletons;
 using MediaWorld.Storage;
@@ -9,10 +10,12 @@ namespace MediaWorld.Client
 {
    internal class Program
     {
+      private static readonly AudioRepository _ar = new AudioRepository();
       private static void Main(string[] args)
         {
-            //PlayAudio();
-            FileAdapter.Write();
+           PlayAudio();
+           //LINQ
+           //FileAdapter.Write(_ar.PList().ToList());
         }
 
         private static void PlayAudio()
@@ -35,13 +38,15 @@ namespace MediaWorld.Client
         //   }
         // }
 
-      var ac = new AudioRepository();
-
+        var ac = new AudioRepository();
+        var ac2 = new AudioRepositoriesGeneric<Song>();
+        
         try 
         {
             foreach(var item in ac.PList())
             {
                 ap2.Play(item);
+                ap2.Stop(item);
             }
         }
         catch(NullReferenceException err)
@@ -68,6 +73,33 @@ namespace MediaWorld.Client
         {
          // var vp = VideoPlayer.GetInstance();
           var vp2 = VideoPlayer.Instance;
+        }
+
+      private static void PlayBook()
+      {
+        var b = new Book();
+
+        //delegate part 2
+        // b.ReadDelegate(UseCasingDelegate);
+        // b.ReadDelegate2(UseCasingDelegate2);
+
+        //event i want the playbook to know if there's an event
+        b.BookEvent += UseEvent;
+        b.Open();
+      }
+
+      public static void UseEvent(string s)
+      {
+        Console.WriteLine("WE HEARD YOU!!");
+      }
+        private static void UseCasingDelegate(string s)
+        {
+          Console.WriteLine(s);
+        }
+
+        private static string UseCasingDelegate2()
+        {
+          return "delegate rules!?";
         }
     }
 }

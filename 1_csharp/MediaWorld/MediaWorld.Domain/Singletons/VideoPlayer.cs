@@ -1,8 +1,10 @@
 
+using MediaWorld.Domain.Abstract;
+
 namespace MediaWorld.Domain.Singletons
 {
 
-public class VideoPlayer
+public class VideoPlayer :APlayer
 {
   private static VideoPlayer _vp = new VideoPlayer();
 
@@ -14,15 +16,14 @@ public class VideoPlayer
   }
   private VideoPlayer()
   {
-
+    
   
-
   }
 
-  public static VideoPlayer GetInstance()
-  {
-    return _vp;
-  }
+  // public static VideoPlayer GetInstance()
+  // {
+  //   return _vp;
+  // }
 }
 
 }

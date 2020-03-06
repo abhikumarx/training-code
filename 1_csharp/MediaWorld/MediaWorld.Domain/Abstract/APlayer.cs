@@ -14,5 +14,10 @@ namespace MediaWorld.Domain.Abstract
     {
       Console.WriteLine("{0} is being stopped...." , media.Title);
     }
+
+    public void Load(AMedia media)
+    {
+      Console.WriteLine("{0} is being Loaded...", media.Title);
+    }
   }
 }

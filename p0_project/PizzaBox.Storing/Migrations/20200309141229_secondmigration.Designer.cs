@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaBox.Storing.Databases;
 
 namespace PizzaBox.Storing.Migrations
 {
     [DbContext(typeof(PizzaBoxDbContext))]
-    partial class PizzaBoxDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200309141229_secondmigration")]
+    partial class secondmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,19 +41,19 @@ namespace PizzaBox.Storing.Migrations
                     b.HasData(
                         new
                         {
-                            CrustId = 637193475374744570L,
+                            CrustId = 637193419495008097L,
                             Name = "Deep Dish",
                             Price = 4.00m
                         },
                         new
                         {
-                            CrustId = 637193475374744989L,
+                            CrustId = 637193419495008472L,
                             Name = "New york style",
                             Price = 3.00m
                         },
                         new
                         {
-                            CrustId = 637193475374745007L,
+                            CrustId = 637193419495008491L,
                             Name = "Thin Crust",
                             Price = 1.50m
                         });
@@ -69,7 +71,7 @@ namespace PizzaBox.Storing.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("orders");
                 });
 
             modelBuilder.Entity("PizzaBox.Domain.Models.OrderPizza", b =>
@@ -152,19 +154,19 @@ namespace PizzaBox.Storing.Migrations
                     b.HasData(
                         new
                         {
-                            SizeId = 637193475374704430L,
+                            SizeId = 637193419494969114L,
                             Name = "Large",
                             Price = 12.0m
                         },
                         new
                         {
-                            SizeId = 637193475374732645L,
+                            SizeId = 637193419494997281L,
                             Name = "Medium",
                             Price = 10.0m
                         },
                         new
                         {
-                            SizeId = 637193475374732698L,
+                            SizeId = 637193419494997336L,
                             Name = "Small",
                             Price = 8.00m
                         });
@@ -185,24 +187,24 @@ namespace PizzaBox.Storing.Migrations
 
                     b.HasKey("ToppingId");
 
-                    b.ToTable("Toppings");
+                    b.ToTable("toppings");
 
                     b.HasData(
                         new
                         {
-                            ToppingId = 637193475374745768L,
+                            ToppingId = 637193419495009415L,
                             Name = "Cheese",
                             Price = 0.25m
                         },
                         new
                         {
-                            ToppingId = 637193475374746087L,
+                            ToppingId = 637193419495009818L,
                             Name = "Pepperoni",
                             Price = 0.50m
                         },
                         new
                         {
-                            ToppingId = 637193475374746109L,
+                            ToppingId = 637193419495009845L,
                             Name = "Tomato Sauce",
                             Price = 0.75m
                         });

@@ -24,11 +24,14 @@ namespace PizzaBox.Storing.Repositories
   
     public List<Pizza> Get()
     {
+      
+    //   return _db.Pizzas.ToList();  
       //types of loading
       //Eager loading physically defining the proj
      // return _db.Pizzas.Include("Crust").Include("Size").Include("Toppings").ToList();
      //Instance loading
-     return _db.Pizzas.Include(p =>p.Crust).Include(p => p.Size).Include(p => p.Toppings).ToList();
+     //this is returning the list of pizzas from the database?
+     return _db.Pizzas.Include(p =>p.Crust).Include(p => p.Size).Include(p => p.PizzaToppings).ToList();
     }
 
   //Get the pizza
@@ -57,15 +60,14 @@ namespace PizzaBox.Storing.Repositories
     }
 
     //Delete Method
-    // public bool Remove(Pizza pizza)
-    // {
-    //   var p = Get(pizza.PizzaId);
+    public bool Remove(Pizza pizza)
+    {
+      var p = Get(pizza.PizzaId);
 
-    //   p = pizza;
-    //   _db.Pizzas.Remove(pizza);
-    //   return _db.SaveChanges() == 1;
-    // }
+      p = pizza;
+      _db.Pizzas.Remove(pizza);
+      return _db.SaveChanges() == 1;
+    }
 
-    
   }
 }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PizzaBox.Domain.Models;
+using System;
 using System.Collections.Generic;
 
 namespace PizzaBox.Storing.Databases
@@ -12,7 +13,8 @@ namespace PizzaBox.Storing.Databases
     public DbSet<Pizza> Pizzas { get; set;}
     public DbSet<Size> Sizes{ get; set;}
     public DbSet<Crust> Crusts{get;set ;}
-    public DbSet<Topping> toppings { get;set;}
+    public DbSet<Topping> Toppings { get;set;}
+    public DbSet<Order> Orders { get; set;} // created an entity set of Order for CRUD operations
 
   //This is the connection to the database
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -25,14 +27,19 @@ namespace PizzaBox.Storing.Databases
       builder.Entity<Crust>().HasKey(c => c.CrustId);
       builder.Entity<Size>().HasKey(s => s.SizeId);
       builder.Entity<Pizza>().HasKey(p => p.PizzaId);
+      builder.Entity<PizzaTopping>().HasKey(pt => new { pt.PizzaId, pt.ToppingId });
       builder.Entity<Topping>().HasKey(t => t.ToppingId);
-     
+      builder.Entity<Order>().HasKey(o => o.OrderId);
+      builder.Entity<OrderPizza>().HasKey(op => new { op.OrderId, op.PizzaId });
+  
       // builder.Entity<Size>().HasMany
       //giving predefinded data to database 
-      builder.Entity<Crust>().HasMany<Pizza>().WithOne(p => p.Crust);
-      builder.Entity<Size>().HasMany<Pizza>().WithOne(p => p.Size);
-      builder.Entity<Topping>().HasMany<Pizza>();
-      
+      builder.Entity<Crust>().HasMany(c => c.Pizzas).WithOne(p => p.Crust);
+      builder.Entity<Pizza>().HasMany(p => p.PizzaToppings).WithOne(pt => pt.Pizza).HasForeignKey(pt => pt.PizzaId);
+      builder.Entity<Size>().HasMany(s => s.Pizzas).WithOne(p => p.Size);
+      builder.Entity<Topping>().HasMany(t => t.PizzaToppings).WithOne(pt => pt.Topping).HasForeignKey(pt => pt.ToppingId);
+      builder.Entity<Order>().HasMany(o => o.OrderPizzas).WithOne(op => op.order).HasForeignKey(op => op.PizzaId);
+  
       builder.Entity<Size>().HasData(new Size[] 
       {
         new Size() { Name = "Large", Price = 12.0M},

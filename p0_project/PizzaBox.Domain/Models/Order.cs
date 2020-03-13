@@ -20,16 +20,17 @@ namespace PizzaBox.Domain.Models
           return p.Price + OrderTotal;
       }         
     }
-    public List<OrderPizza> OrderPizzas { get; set; }
+    public List<OrderPizza> OrderPizzas ;
+    
 
     public Order()
     {
-      OrderId = 22;
+      OrderPizzas = new List<OrderPizza>();
+     
     }
 
     public override string ToString()
     {
-      
       return $"{OrderId} {OrderDate} {OrderTotal} {OrderPizzas.Count}";
     }
   }

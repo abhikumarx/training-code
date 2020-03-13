@@ -15,6 +15,8 @@ namespace PizzaBox.Storing.Databases
     public DbSet<Crust> Crusts{get;set ;}
     public DbSet<Topping> Toppings { get;set;}
     public DbSet<Order> Orders { get; set;} // created an entity set of Order for CRUD operations
+    public DbSet<User> Users { get;set;}
+    public DbSet<Store> stores {get;set;}
 
   //This is the connection to the database
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -31,14 +33,23 @@ namespace PizzaBox.Storing.Databases
       builder.Entity<Topping>().HasKey(t => t.ToppingId);
       builder.Entity<Order>().HasKey(o => o.OrderId);
       builder.Entity<OrderPizza>().HasKey(op => new { op.OrderId, op.PizzaId });
+      builder.Entity<User>().HasKey(u => u.UserId);
+      builder.Entity<UserOrders>().HasKey(uo => new { uo.UserId, uo.OrderId});
+      builder.Entity<Store>().HasKey(st => st.StoreId);
   
       // builder.Entity<Size>().HasMany
       //giving predefinded data to database 
       builder.Entity<Crust>().HasMany(c => c.Pizzas).WithOne(p => p.Crust);
       builder.Entity<Pizza>().HasMany(p => p.PizzaToppings).WithOne(pt => pt.Pizza).HasForeignKey(pt => pt.PizzaId);
       builder.Entity<Size>().HasMany(s => s.Pizzas).WithOne(p => p.Size);
-      builder.Entity<Topping>().HasMany(t => t.PizzaToppings).WithOne(pt => pt.Topping).HasForeignKey(pt => pt.ToppingId);
+      builder.Entity<Topping>().HasMany(t => t.PizzaToppings).WithOne(pt => pt.Topping).HasForeignKey(pt => pt.ToppingId); 
+      builder.Entity<User>().HasMany(u => u.userorders).WithOne(uo => uo.user).HasForeignKey(uo => uo.UserId);     
       builder.Entity<Order>().HasMany(o => o.OrderPizzas).WithOne(op => op.order).HasForeignKey(op => op.PizzaId);
+      builder.Entity<Store>().HasData( new Store[]
+      {
+        new Store() { StoreId = 1, StoreName = "Home Store", StoreAddress = "1212 home st 76010", PhoneNum = "706-855-9963"},
+        new Store() { StoreId = 2,StoreName = "Away Store", StoreAddress = "5656 Away Avenue 76000", PhoneNum = "706-996-7841"}
+      });
   
       builder.Entity<Size>().HasData(new Size[] 
       {

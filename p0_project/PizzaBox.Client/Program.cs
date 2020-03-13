@@ -14,48 +14,82 @@ namespace PizzaBox.Client
       private static readonly OrderSingleton _os = OrderSingleton.InstanceOrder;
       private static readonly UserRepository _ur = new UserRepository();
       private static readonly UserSingleton _us = UserSingleton.InstanceUser;
-        private static void Main(string[] args)
+      private static readonly CrustRepository _cr = new CrustRepository();
+      private static readonly SizeRepository _sr = new SizeRepository();
+      private static readonly StoreRepository _st = new StoreRepository();
+        
+      private static void Main(string[] args)
         {
-          // GetAllPizzas();
-          // GetTheOrder();
+          bool running = true;
+          while(running)
+          {
+          LoadLocations();         
+          GetAllPizzas();
+          GetAlltheOrders();
+          GetUser();
+          }    
+
         }
 
         //To create a pizza
         private static void GetAllPizzas()
         {
-           //because we are expecting a type of Pizza
-          // var lp = new List<Pizza>()
 
-           //Creating some pizzas or Creating a pizza
-          //  {
-          //   new Pizza()
-          //  };
-
-          //
-            foreach(var p in _ps.Get())
-           {
-              Console.WriteLine(p);
+        foreach(var p in _ps.Get())
+        {
+        Console.WriteLine(p);
+        }
+        }
+        private static void GetAlltheOrders()
+        {
+          foreach(var o in _os.GetOrders())
+          {
+            Console.WriteLine(o);
           }
+        }
+
+        private static void CreatAPizza()
+        {
+          var p = new Pizza();
+
         }
 
       public static void PostAllPizzas()
       {
-        //this is used to get the crust
+        var crusts = _cr.Get(); // _db1
+      var sizes = _sr.Get(); // _db2
+
+      _ps.Post(crusts[0], sizes[0], null);
         
       }
-        // private static void GetTheOrder()
-        // {
-        //   User o1 = new User();
-        //   foreach(var o in _us.Get())
-        //   {
-            
-        //    if(o.OrderId != 0)
-        //    {
-        //      Console.WriteLine("Your First order was placed with Id:{0}", o.OrderId);
-        //      Console.WriteLine("Your First order was placed with Id:{1}", o.OrderId);
-        //    }
-        //   }
-        // }
+        
+
+        public static void GetUser()
+        {
+          var u = new User();
+          Console.WriteLine("Enter your name:");
+          u.UserName = Console.ReadLine();
+          Console.WriteLine("Enter your Address:");
+          u.UserAddress = Console.ReadLine();
+          Console.WriteLine("Enter your Phone Number:");
+          u.PhoneNumber = Console.ReadLine();
+          Console.WriteLine("Enter your Email:");
+          u.EmailAddress = Console.ReadLine();
+          
+          _ur.PostUsers(u);
+        }
+
+      public static void LoadLocations()
+      {
+        Console.WriteLine("Select a location:");
+       // s.StoreName = Console.ReadLine();
+        Store[] starr = _st.GetStore().ToArray();
+        Console.WriteLine("Select a location:");
+        for(int i = 0; i < starr.Length; i++)
+        {
+          Console.WriteLine(starr[i].ToString());
+        }
+      }
 
         
     }

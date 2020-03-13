@@ -1,0 +1,50 @@
+/*
+specificity-
+(d,c,b,a)
+a -> n * 10^0 (1) = tag
+b -> n * 10^1 (10) = classes
+c -> n * 10^2 (100) = id
+d -> n * 10^3 (1000) = !important
+*/
+
+/* base selectors */
+
+  *{
+  box-sizing: border-box; /* css box model */ 
+  }
+
+  tag {
+    text-decoration: none;
+  }
+
+  *.class
+  {
+    display: flex;
+  }
+
+  tag.class
+  {
+    color: red;
+  }
+
+  #id
+  {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  /* additional selectors */
+
+  sibling + sibling
+  {
+
+  }
+
+  sibling ~ sibling
+  {
+
+  }
+
+  ancestor descendant
+  {
+    
+  }

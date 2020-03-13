@@ -33,7 +33,9 @@ namespace PizzaBox.Domain.Models
     }
 
     public Crust Crust { get;set;}
+
     public Size Size { get; set;}
+    
     public List<PizzaTopping> PizzaToppings { get; set;}
 
     public Pizza()
@@ -41,10 +43,10 @@ namespace PizzaBox.Domain.Models
      
     }
 
-    public override string ToString()
-    {
-      //got the error because the values of the name were null and it's not a representation of string so you have write what it should say
-      return $"{PizzaId} {Name ?? "N/A"} {Price} {Crust.Name ?? "N/A" } {Size.Name ?? "N/A"} {PizzaToppings.Count}";
-    }
+    // public override string ToString()
+    // {
+    //   //got the error because the values of the name were null and it's not a representation of string so you have write what it should say
+    //   return $"{PizzaId} {Name ?? "N/A"} {Price} {Crust.Name ?? "N/A" } {Size.Name ?? "N/A"} {PizzaToppings.Count}";
+    // }
   }
 }

@@ -60,14 +60,14 @@ namespace PizzaBox.Storing.Repositories
     }
 
     //Delete Method
-    public bool Remove(Pizza pizza)
-    {
-      var p = Get(pizza.PizzaId);
+    // public bool Remove(Pizza pizza)
+    // {
+    //   var p = Get(pizza.PizzaId);
 
-      p = pizza;
-      _db.Pizzas.Remove(pizza);
-      return _db.SaveChanges() == 1;
-    }
+    //   p = pizza;
+    //   _db.Pizzas.Remove(pizza);
+    //   return _db.SaveChanges() == 1;
+    // }
 
   }
 }

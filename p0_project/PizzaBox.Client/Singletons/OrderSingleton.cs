@@ -21,16 +21,17 @@ namespace PizzaBox.Client.Singletons
   private OrderSingleton(){}
    public List<Order> GetOrders()
    {
-     return _or.GetOrders();
+     return _or.GetOrdersRepo();
    }
 
       //This is a 'Create' method for an Order
-    public void OPost(List<OrderPizza> orderpizzas)
+    public bool OPost(Pizza pizzas)
     {
-      Order order = new Order()
+      var o = new Order()
       {
-        OrderPizzas = orderpizzas
-      };     
+        
+      };    
+      return _or.OPost(o); 
     }
   }
 }
